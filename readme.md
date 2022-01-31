@@ -11,8 +11,10 @@ Run before new post is created with the args, the args are supplied to this filt
 ### Action
 1. **duplicate_page_after_post_duplicate**(Int $new_post_id, Int $source_post_id)
 
-Fires after the new duplicate post is created, argument contains the newly created post id and the source post's id from which the duplication is done.
+Fires after the new duplicate post is created and before the post metas are created, argument contains the newly created post id and the source post's id from which the duplication is done.
 
+1. **duplicate_page_finished_post_duplicate**(Int $new_post_id, Int $source_post_id)
+Fires after the new duplicate post is created and the post metas are also duplicated, argument contains the newly created post id and the source post's id from which the duplication is done.
 
 ### Original Credits remain intact to the author: 
 
