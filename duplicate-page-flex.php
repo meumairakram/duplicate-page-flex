@@ -190,7 +190,7 @@ if (!class_exists('duplicate_page')):
                      'menu_order' => $post->menu_order,
                  );
 
-                $args = apply_filter('duplicate_page_new_post_args', $args, $post);
+                $args = apply_filters('duplicate_page_new_post_args', $args, $post);
 
                 /*
                 * insert the post by wp_insert_post() function
@@ -223,6 +223,9 @@ if (!class_exists('duplicate_page')):
                         $sql_query.= implode(" UNION ALL ", $sql_query_sel);
                         $wpdb->query($sql_query);
 					} 
+
+
+                do_action('duplicate_page_finished_post_duplicate', $new_post_id, $post->ID);
                 /*
                 * finally, redirecting to your choice
                 */
